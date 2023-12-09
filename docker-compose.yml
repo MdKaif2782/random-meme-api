@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  # Spring Boot Application
+  spring-boot-app:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - selenium-chrome
+
+  # Selenium with ChromeDriver
+  selenium-chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"
