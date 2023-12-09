@@ -23,9 +23,10 @@ public class RandomMemeApiApplication {
     public String hello() throws MalformedURLException {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setCapability("platformName", "LINUX");
-        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
+        WebDriver driver = new RemoteWebDriver(new URL("http://selenium-chrome:4444/wd/hub"), chromeOptions);
         driver.get("https://www.google.com");
         String title = driver.getTitle();
+
         String pageSource = driver.getPageSource();
         driver.quit();
         return pageSource;
